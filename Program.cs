@@ -11,7 +11,7 @@ namespace APIExerciseTwo
             var client = new HttpClient();
             Console.WriteLine("Enter your zip code");
             var zip = Console.ReadLine();
-            var weatherURL = $"https://api.openweathermap.org/data/2.5/weather?zip={zip}&appid={apiKey}";
+            var weatherURL = $"https://api.openweathermap.org/data/2.5/weather?zip={zip}&appid={apiKey}&units=imperial";
             var response = client.GetStringAsync(weatherURL).Result;
 
             //Console.WriteLine(response);
@@ -24,9 +24,9 @@ namespace APIExerciseTwo
             var humidity = formattedResponse["main"]["humidity"];
             Console.WriteLine($"The current weather for {formattedResponse["name"]}");
             Console.WriteLine($"Description: {weatherDescription}");
-            Console.WriteLine($"current temperature: {temperature} kelvin");
-            Console.WriteLine($"minimum temperature: {tempMin} kelvin");
-            Console.WriteLine($"maximum temperature: {tempMax} kelvin");
+            Console.WriteLine($"current temperature: {temperature} Fahrenheit");
+            Console.WriteLine($"minimum temperature: {tempMin} Fahrenheit");
+            Console.WriteLine($"maximum temperature: {tempMax} Fahrenheit");
             Console.WriteLine($"humidity: {humidity} percent");
         }
     }
